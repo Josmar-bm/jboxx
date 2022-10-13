@@ -5,6 +5,22 @@ export default ({ items }) => {
   return (
     <div>
       <style jsx>{`
+        @media only screen and (max-width: 600px) {
+          .user-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            left: 60%;
+          }
+          .header-2 {
+            color: #999;
+            font-size: 11px;
+            text-transform: uppercase;
+            position: relative;
+            left: 60%;
+          }
+        }
         .user-list {
           list-style: none;
           margin: 0;
@@ -36,7 +52,9 @@ export default ({ items }) => {
           text-transform: uppercase;
         }
       `}</style>
-      <h2 className="header-2"><FormattedMessage id="online" /></h2>
+      <h2 className="header-2">
+        <FormattedMessage id="online" />
+      </h2>
       <ul className="user-list">
         {items.map((i, index) => {
           const userName = i.display_name || i.id;
@@ -52,9 +70,7 @@ export default ({ items }) => {
                   title={userName}
                 />
               </div>
-              <div className="user-name media__bd">
-                {userName}
-              </div>
+              <div className="user-name media__bd">{userName}</div>
             </li>
           );
         })}
